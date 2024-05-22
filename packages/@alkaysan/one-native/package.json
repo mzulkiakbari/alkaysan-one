@@ -1,8 +1,8 @@
 {
-  "name": "@noonor/alkaysan-one",
-  "version": "1.0.9",
-  "description": "Alkaysan One is Alkaysan Private Package for Authentication Account.",
-  "homepage": "https://github.com/bariarts/alkaysan-one",
+  "name": "@noonor/alkaysan-one-native",
+  "version": "1.0.0",
+  "description": "Alkaysan One is Alkaysan Private Package for React Native Authentication Account.",
+  "homepage": "https://github.com/bariarts/alkaysan-one-native",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
@@ -16,16 +16,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bariarts/alkaysan-one.git"
+    "url": "git+https://github.com/bariarts/alkaysan-one-native.git"
   },
   "devDependencies": {
-    "@types/react": "^18.0.8",
+    "@types/react": "^18.3.2",
     "cross-env": "^7.0.3",
     "rollup": "^2.71.1",
     "typescript": "^4.6.4"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
+    "react": "^18.3.1",
     "react-dom": ">=16.8.0"
   },
   "config": {
@@ -34,6 +34,8 @@
     }
   },
   "dependencies": {
-    "classnames": "^2.3.1"
+    "@types/react-native": "^0.73.0",
+    "classnames": "^2.3.1",
+    "react-native": "^0.74.1"
   }
 }

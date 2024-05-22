@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { useContext, createContext, useMemo, ReactNode } from 'react';
+import * as React from 'react';
 
 import useLoadAlkaysanSSOScript, {
   UseLoadAlkaysanSSOScriptOptions,
@@ -14,14 +14,14 @@ interface AlkaysanOAuthContextProps {
   data?: any;
 }
 
-const AlkaysanOAuthContext = createContext<AlkaysanOAuthContextProps>(null!);
+const AlkaysanOAuthContext = React.createContext<AlkaysanOAuthContextProps>(null!);
 
 interface AlkaysanOAuthProviderProps extends UseLoadAlkaysanSSOScriptOptions {
   clientId: string;
   clientSecret: string;
   redirectURI: string;
   responseType: "code" | "authorization_code";
-  children?: ReactNode;
+  children?: React.ReactNode;
   data?: any;
 }
 
@@ -42,7 +42,7 @@ export default function AlkaysanOAuthProvider({
     onScriptLoadError,
   });
 
-  const contextValue = useMemo(
+  const contextValue = React.useMemo(
     () => ({
       clientId,
       clientSecret,
@@ -62,7 +62,7 @@ export default function AlkaysanOAuthProvider({
 }
 
 export function useAlkaysanOAuth() {
-  const context = useContext(AlkaysanOAuthContext);
+  const context = React.useContext(AlkaysanOAuthContext);
   if (!context) {
     throw new Error(
       'Alkaysan OAuth components must be used within AlkaysanOAuthProvider',

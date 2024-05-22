@@ -9,6 +9,7 @@ coverage
 # production
 build
 dist
+.npmignore
 
 # misc
 .DS_Store

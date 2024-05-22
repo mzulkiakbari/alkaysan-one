@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development turbo run dev",
     "dev:alkaysan-one": "npm run dev -- --filter=...@alkaysan/one",
+    "dev:alkaysan-one-native": "npm run dev -- --filter=...@alkaysan/one-native",
     "build": "cross-env NODE_ENV=production turbo run build",
     "prettier:check": "prettier . --check --ignore-unknown --ignore-path .gitignore",
     "prettier:fix": "prettier . --write --ignore-unknown --ignore-path .gitignore",

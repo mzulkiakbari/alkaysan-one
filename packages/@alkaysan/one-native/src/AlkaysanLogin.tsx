@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { useEffect, useRef } from 'react';
+import * as React from 'react';
 
 import { useAlkaysanOAuth } from './AlkaysanOauthProvider';
 import {
@@ -7,6 +7,7 @@ import {
   AlkaysanButtonConfiguration,
   AlkaysanCredentialResponse,
 } from './types';
+import { View, ViewProps } from 'react-native';
 
 const containerHeightMap = { large: 40, medium: 32, small: 20 };
 
@@ -14,7 +15,7 @@ export type AlkaysanLoginProps = {
   onSuccess?: (credentialResponse: AlkaysanCredentialResponse) => void;
   onError?: () => void;
   onLoad?: () => void;
-  containerProps?: React.ComponentPropsWithoutRef<'div'>;
+  containerProps?: ViewProps;
 } & Omit<
   IdConfiguration,
   'client_id' | 'client_secret' | 'redirect_uri' | 'callback'
@@ -35,16 +36,16 @@ export default function AlkaysanLogin({
   containerProps,
   ...props
 }: AlkaysanLoginProps) {
-  const btnContainerRef = useRef<HTMLDivElement>(null);
+  const btnContainerRef = React.useRef<any>(null);
   const { clientId, clientSecret, redirectURI, responseType, scriptLoadedSuccessfully } = useAlkaysanOAuth();
 
-  const onSuccessRef = useRef(onSuccess);
+  const onSuccessRef = React.useRef(onSuccess);
   onSuccessRef.current = onSuccess;
 
-  const onErrorRef = useRef(onError);
+  const onErrorRef = React.useRef(onError);
   onErrorRef.current = onError;
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!scriptLoadedSuccessfully) return;
 
     window?.alkaysan?.account?.id?.initialize({
@@ -76,11 +77,16 @@ export default function AlkaysanLogin({
     });
   }, [scriptLoadedSuccessfully]);
 
+  const combinedStyle = {
+    height: containerHeightMap[size],
+    ...(containerProps?.style ? [containerProps?.style] : null)
+  }
+
   return (
-    <div
+    <View
       {...containerProps}
       ref={btnContainerRef}
-      style={{ height: containerHeightMap[size], ...containerProps?.style }}
+      style={[combinedStyle]}
     />
   );
 }
