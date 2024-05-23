@@ -2,7 +2,7 @@
   "name": "@noonor/alkaysan-one-native",
   "version": "1.0.0",
   "description": "Alkaysan One is Alkaysan Private Package for React Native Authentication Account.",
-  "homepage": "https://github.com/bariarts/alkaysan-one-native",
+  "homepage": "https://github.com/mzulkiakbari/alkaysan-one-native",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bariarts/alkaysan-one-native.git"
+    "url": "git+https://github.com/mzulkiakbari/alkaysan-one-native.git"
   },
   "devDependencies": {
     "@types/react": "^18.3.2",
